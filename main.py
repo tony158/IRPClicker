@@ -28,7 +28,7 @@ def start_find_appointment():
     click_count = 0
     appointment_available = False
     while (not appointment_available) and (click_count <= many_times):
-        appointment_available = click_and_check_availability(driver)
+        appointment_available = click_and_check_available(driver)
         click_count += 1
 
     if appointment_available:
@@ -42,7 +42,7 @@ def start_find_appointment():
 
 
 # return True, when available appointments are found or need to reload page
-def click_and_check_availability(driver):
+def click_and_check_available(driver):
     button = driver.find_element(By.ID, button_find_appointment)
     play_beep(300, 1)
     button.click()
