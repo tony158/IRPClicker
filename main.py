@@ -12,7 +12,7 @@ import random
 chrome_driver_path = "C:/webdrivers/chromedriver.exe"
 chrome_port = "localhost:8989"
 many_times = 300
-waiting_time = (12, 16)
+wait_a_little = (12, 16)
 
 button_find_appointment = "btSrch4Apps"
 xpath_no_appointment_text = "//tr[contains(.,'No appointment(s) are currently available')]"
@@ -47,7 +47,7 @@ def click_and_check_available(driver):
     play_beep(300, 1)
     button.click()
 
-    sleep(random.randint(waiting_time[0], waiting_time[1]))
+    sleep(random.randint(wait_a_little[0], wait_a_little[1]))
 
     try:
         no_appointment_text = driver.find_element(By.XPATH, xpath_no_appointment_text)
