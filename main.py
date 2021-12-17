@@ -42,7 +42,7 @@ def start_find_appointment():
     exit()
 
 
-# return True, when available appointments are found or need to reload page
+# return True: when appointments available or when you need to reload page
 def click_and_check_available(driver):
     button = driver.find_element(By.ID, button_find_appointment)
     play_beep(300, 1)
