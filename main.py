@@ -42,20 +42,22 @@ def start_find_appointment():
     exit()
 
 
-def handle_button_disabled(driver):
+def handle_button_disabled(driver, just_wait=True):
     button = driver.find_element(By.ID, button_find_appointment)
     if not button.is_enabled():
         print("******button is disabled******")
-        sleep(66)
-        # to_enable = "document.getElementById('" + button_find_appointment + "').removeAttribute('disabled');"
-        # driver.execute_script(to_enable)
-        # sleep(wait_a_little[1])
+        if just_wait:
+            sleep(66)
+        else:
+            to_enable = "document.getElementById('" + button_find_appointment + "').removeAttribute('disabled');"
+            driver.execute_script(to_enable)
+            sleep(wait_a_little[1])
         print("******button is now:" + str(button.is_enabled()) + "******")
 
 
 # return True: when appointments available or when you need to reload page
 def click_and_check_available(driver):
-    handle_button_disabled(driver)
+    handle_button_disabled(driver, just_wait=True)
     button = driver.find_element(By.ID, button_find_appointment)
     play_beep(300, 1)
     button.click()
