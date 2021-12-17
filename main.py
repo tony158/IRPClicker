@@ -46,11 +46,11 @@ def start_find_appointment():
 def handle_button_disabled(driver):
     button = driver.find_element(By.ID, button_find_appointment)
     if not button.is_enabled():
-        print("***button is disabled***")
+        print("******button is disabled******")
         to_enable = "document.getElementById('" + button_find_appointment + "').removeAttribute('disabled');"
         driver.execute_script(to_enable)
-        sleep(3)
-        print("***button is now:" + str(button.is_enabled()) + "***")
+        sleep(8)
+        print("******button is now:" + str(button.is_enabled()) + "******")
 
 
 # return True: when appointments available or when you need to reload page
