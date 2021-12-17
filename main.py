@@ -48,7 +48,7 @@ def handle_button_disabled(driver):
         print("******button is disabled******")
         to_enable = "document.getElementById('" + button_find_appointment + "').removeAttribute('disabled');"
         driver.execute_script(to_enable)
-        sleep(wait_a_little[0])
+        sleep(wait_a_little[1])
         print("******button is now:" + str(button.is_enabled()) + "******")
 
 
