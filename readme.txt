@@ -3,7 +3,7 @@
 ############################################################################
 
 --------------------------------------------------------------------------------------------
-command to start chrome on a specific port in a seperated user profile:
+windows cmd to start chrome on a specific port in a seperated user profile:
 
 ---
 cd C:\Program Files (x86)\Google\Chrome\Application
