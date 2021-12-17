@@ -9,10 +9,11 @@ from time import sleep
 import winsound
 import random
 
+wait_a_little = (12, 16)
+
 chrome_driver_path = "C:/webdrivers/chromedriver.exe"
 chrome_port = "localhost:8989"
 many_times = 300
-wait_a_little = (12, 16)
 
 button_find_appointment = "btSrch4Apps"
 xpath_no_appointment_text = "//tr[contains(.,'No appointment(s) are currently available')]"
