@@ -38,7 +38,6 @@ def start_find_appointment():
     else:
         print("-----------------------no appointment found yet!----------------------------------")
         play_beep(1000)
-
     exit()
 
 
