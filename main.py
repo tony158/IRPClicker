@@ -11,11 +11,11 @@ import random
 
 wait_a_little = (12, 16)
 
-chrome_driver_path = "C:/webdrivers/chromedriver.exe"
+chrome_driver_dir = "C:/webdrivers/chromedriver.exe"
 chrome_port = "localhost:8989"
 many_times = 300
 
-button_find_appointment = "btSrch4Apps"
+button_id_find_appointment = "btSrch4Apps"
 xpath_no_appointment_text = "//tr[contains(.,'No appointment(s) are currently available')]"
 
 
@@ -23,7 +23,7 @@ def start_find_appointment():
     play_beep()
     opt = Options()
     opt.add_experimental_option("debuggerAddress", chrome_port)
-    driver = webdriver.Chrome(service=Service(chrome_driver_path), options=opt)
+    driver = webdriver.Chrome(service=Service(chrome_driver_dir), options=opt)
     sleep(3)
 
     click_count = 0
@@ -43,13 +43,13 @@ def start_find_appointment():
 
 
 def handle_button_disabled(driver, just_wait=True):
-    button = driver.find_element(By.ID, button_find_appointment)
+    button = driver.find_element(By.ID, button_id_find_appointment)
     if not button.is_enabled():
         print("******button is disabled******")
         if just_wait:
             sleep(66)
         else:
-            to_enable = "document.getElementById('" + button_find_appointment + "').removeAttribute('disabled');"
+            to_enable = "document.getElementById('" + button_id_find_appointment + "').removeAttribute('disabled');"
             driver.execute_script(to_enable)
             sleep(wait_a_little[1])
         print("******button is now:" + str(button.is_enabled()) + "******")
@@ -58,7 +58,7 @@ def handle_button_disabled(driver, just_wait=True):
 # return True: when appointments available or when you need to reload page
 def click_and_check_available(driver):
     handle_button_disabled(driver, just_wait=True)
-    button = driver.find_element(By.ID, button_find_appointment)
+    button = driver.find_element(By.ID, button_id_find_appointment)
     play_beep(300, 1)
     button.click()
 
