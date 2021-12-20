@@ -60,9 +60,10 @@ def click_and_check_available(driver):
     handle_button_disabled(driver, just_wait=True)
     button = driver.find_element(By.ID, button_id_find_appointment)
     # button.click()
-    offset_pos = random.randint(-5, 5)
+    offset_x_pos = random.randint(-10, 10)
+    offset_y_pos = random.randint(-5, 5)
     action = ActionChains(driver)
-    action.move_to_element_with_offset(button, offset_pos, offset_pos).click().perform()
+    action.move_to_element_with_offset(button, offset_x_pos, offset_y_pos).click().perform()
     play_beep(300, 1)
 
     sleep(random.randint(wait_a_little[0], wait_a_little[1]))
