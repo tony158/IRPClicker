@@ -42,7 +42,7 @@ def start_find_appointment():
     exit()
 
 
-def handle_button_disabled(driver, just_wait=True):
+def handle_disabled_button(driver, just_wait=True):
     button = driver.find_element(By.ID, button_id_find_appointment)
     if not button.is_enabled():
         print("******button is disabled******")
@@ -57,7 +57,7 @@ def handle_button_disabled(driver, just_wait=True):
 
 # return True: when appointments available or when you need to reload page
 def click_and_check_available(driver):
-    handle_button_disabled(driver, just_wait=True)
+    handle_disabled_button(driver, just_wait=True)
     button = driver.find_element(By.ID, button_id_find_appointment)
     # button.click()
     offset_x_pos = random.choice([i for i in range(-12, 12) if i not in [0]])
