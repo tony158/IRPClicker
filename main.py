@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -58,8 +59,11 @@ def handle_button_disabled(driver, just_wait=True):
 def click_and_check_available(driver):
     handle_button_disabled(driver, just_wait=True)
     button = driver.find_element(By.ID, button_id_find_appointment)
+    # button.click()
+    offset_pos = random.randint(-5, 5)
+    action = ActionChains(driver)
+    action.move_to_element_with_offset(button, offset_pos, offset_pos).click().perform()
     play_beep(300, 1)
-    button.click()
 
     sleep(random.randint(wait_a_little[0], wait_a_little[1]))
 
